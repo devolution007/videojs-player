@@ -1,0 +1,15 @@
+{
+  "name": "videojs-player",
+  "version": "1.0.0",
+  "description": "videojs-player",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Devolution",
+  "license": "ISC",
+  "dependencies": {
+    "video.js": "^8.6.1",
+    "videojs-chromecast": "^2.0.8"
+  }
+}
