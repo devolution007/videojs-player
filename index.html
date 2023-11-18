@@ -8,23 +8,32 @@
 <body>
   <video
     id="my-video"
-    class="video-js"
+    class="video-js vjs-default-skin"
     controls
     preload="auto"
     width="640"
     height="360"
-    data-setup='{}'
+    data-setup='{"fluid": true}'
   >
     <source src="video.mp4" type="video/mp4">
   </video>
 
   <script>
-    var player = videojs('my-video');
-    player.chromecast();
-    player.controlBar.addChild('ChromecastButton', {}, 1); // Chromecast control
-    player.controlBar.addChild('SeekButtons'); // Seek control
-    player.controlBar.addChild('VolumePanel'); // Volume control
+    document.addEventListener('DOMContentLoaded', function() {
+      var player = videojs('my-video', { fluid: true });
 
+      player.ready(function() {
+        var options = {};
+        player.chromecast(options);
+
+        // Add Chromecast button to the control bar
+        player.controlBar.addChild('ChromecastButton');
+      });
+
+      // Add additional controls
+      player.controlBar.addChild('SeekButtons');
+      player.controlBar.addChild('VolumePanel');
+    });
   </script>
 </body>
 </html>
